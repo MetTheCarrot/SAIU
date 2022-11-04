@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path 
 from os import path
+import SAIU_DATOS
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/admin/login/?next='
 LOGOUT_REDIRECT_URL = '/'
@@ -43,6 +44,7 @@ DEFAULT_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'SAIU_DATOS',
  ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
