@@ -8,11 +8,14 @@
     <title>
         {% block title %} {% endblock %}
     </title>
-    <link rel="stylesheet" href="main.css">nk
+    <link rel = "stylesheet" href="{% static '/main.css' %}">
 </head>
 <body>
     {% block content %}
     
     {% endblock %}
 </body>
+<footer>
+    <p class="XD">ProyectoSAIU @ Todos los derechos reservador</p>
+</footer>
 </html>

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from SAIU_DATOS.models import Info, User
+from SAIU_DATOS.models import Info
 # Register your models here.
 
 class extraInfor(admin.ModelAdmin):
@@ -10,4 +10,4 @@ class extraInfor(admin.ModelAdmin):
 admin.site.register(Info)
 
 
-admin.site.register(User, UserAdmin)
+# admin.site.register(User, UserAdmin)

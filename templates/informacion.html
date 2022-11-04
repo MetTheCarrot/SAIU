@@ -1,8 +1,18 @@
 {% extends "base.html" %}
 {% block title %} Información {% endblock %}
 {% block content %}
+    
     <h1>¡Bienvenido, {{user.first_name}} {{user.last_name}}!</h1> 
     
+    <p> 
+        <select name="SDA">
+            <option>SDA-I</option>
+            <option>SDA-II</option>
+            <option>SDA-III</option>
+            <option>SDA-IV</option>
+        </select>
+    </p>
+    <p>Código del SDA #000{{user.id}}</p>
     <!-- image profile -->
 
     <img src="{{user.url_image}}" alt="">

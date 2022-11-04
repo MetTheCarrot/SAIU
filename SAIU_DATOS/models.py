@@ -12,7 +12,3 @@ class Info(models.Model):
 
     def __str__(self):
         return self.name
-
-class User(AbstractUser):
-    url_image = models.CharField(verbose_name="imagen")
-    
