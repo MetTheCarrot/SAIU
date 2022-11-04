@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class Info(models.Model):
@@ -13,6 +12,4 @@ class Info(models.Model):
     def __str__(self):
         return self.name
 
-class User(AbstractUser):
-    url_image = models.CharField(verbose_name="imagen")
     
