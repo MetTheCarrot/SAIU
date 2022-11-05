@@ -1,13 +1,53 @@
 from django.db import models
 
 # Create your models here.
-class Info(models.Model):
+class Agosto(models.Model):
     class Meta:
-        verbose_name = "Información"
-        verbose_name_plural = "Información"
+        verbose_name = "Agosto"
+        verbose_name_plural = "Agosto"
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=100, verbose_name="Nombre")
-    description = models.CharField(max_length=100, verbose_name="Descripción")
+    primeraSemana = models.IntegerField(verbose_name="Semana 1")
+    segundaSemana = models.IntegerField(verbose_name="Semana 2")
+    terceraSemana = models.IntegerField(verbose_name="Semana 3")
+    cuartaSemana = models.IntegerField(verbose_name="Semana 4")
+    # def __str__(self):
+    #     return self.name
 
-    def __str__(self):
-        return self.name
+
+class Septiembre(models.Model):
+    class Meta:
+        verbose_name = "Septiembre"
+        verbose_name_plural = "Septiembre"
+    id = models.AutoField(primary_key=True)
+    primeraSemana = models.IntegerField(verbose_name="Semana 1")
+    segundaSemana = models.IntegerField(verbose_name="Semana 2")
+    terceraSemana = models.IntegerField(verbose_name="Semana 3")
+    cuartaSemana = models.IntegerField(verbose_name="Semana 4")
+    # def __str__(self):
+    #     return self.name
+
+
+class Octubre(models.Model):
+    class Meta:
+        verbose_name = "Octubre"
+        verbose_name_plural = "Octubre"
+    id = models.AutoField(primary_key=True)
+    primeraSemana = models.IntegerField(verbose_name="Semana 1")
+    segundaSemana = models.IntegerField(verbose_name="Semana 2")
+    terceraSemana = models.IntegerField(verbose_name="Semana 3")
+    cuartaSemana = models.IntegerField(verbose_name="Semana 4")
+    # def __str__(self):
+    #     return self.name
+
+
+class Noviembre(models.Model):
+    class Meta:
+        verbose_name = "Noviembre"
+        verbose_name_plural = "Noviembre"
+    id = models.AutoField(primary_key=True)
+    primeraSemana = models.IntegerField(verbose_name="Semana 1")
+    segundaSemana = models.IntegerField(verbose_name="Semana 2")
+    terceraSemana = models.IntegerField(verbose_name="Semana 3")
+    cuartaSemana = models.IntegerField(verbose_name="Semana 4")
+    # def __str__(self):
+    #     return self.name
