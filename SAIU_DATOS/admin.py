@@ -7,6 +7,3 @@ class extraInfor(admin.ModelAdmin):
     list_display = ("name", "description")
 
 admin.site.register(Info)
-
-
-# admin.site.register(User, UserAdmin)
