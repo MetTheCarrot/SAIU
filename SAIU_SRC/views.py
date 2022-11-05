@@ -30,8 +30,4 @@ def base(request):
         d.append(i.segundaSemana)
         d.append(i.terceraSemana)
         d.append(i.cuartaSemana)
-    print(f'Agosto: {a}')
-    print(f'Septiembre: {b}')
-    print(f'Octubre: {c}')
-    print(f'Noviembre: {d}')
     return render(request, "informacion.html", {"a": a, "b": b, "c": c, "d": d})
