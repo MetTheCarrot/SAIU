@@ -1,113 +1,73 @@
 {% extends "base.html" %}
 {% block title %} Información {% endblock %}
 {% block content %}
-<style>
+    <!-- Imagen de desenfoque -->
 
-.fecha_actual {
-    font-size: 22px;
-    color: #000;
-    left: 40px;
-    position: fixed;
-    top: 285px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-.saiu{
-    position: fixed;
-    left: 20px;
-    top: 100px; 
-}
-.slogan{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 30px;
-    position: fixed;
-    left: 230px;
-    top: 120px; 
-}
-
-.desenfoque{
-    filter: blur(4px);
-    position: fixed;
-    background-color: white;
-    top: 90px;
-    width: 550px;
-    left: -10px;
-    height: 180px;
-    opacity: 60%;
-}
-
-.sda{
-        margin:20px auto 20px auto;	
-        border:1px solid #d9d9d9;
-        height:40px;
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        font-size: 20px;
-        top: 150px;
-        overflow: hidden;
-        width: 200px;
-        position:fixed;
-        left: 250px;
-        border-radius: 20px;
-    }
-
-</style>
-<img class="desenfoque" src="../static/XD.png" alt="" width="100" height="100">
-
+    <img class="desenfoque" src="../static/XD.png" alt="" width="100" height="100">
+    
+    <!-- Información de usuario -->
+    
     <div class="welcome">
         <h1>¡Bienvenido, {{user.first_name}} {{user.last_name}}!</h1> 
     </div>
-    <div class="dispo">
-        <!-- Lista de dispositivos -->
-		<select name="listaDeDispositivos" id="listaDeDispositivos"></select>
-        <!-- Lista de dispositivos -->
 
+    <!-- Webcam -->
+
+    <div class="dispo">
+        <select name="listaDeDispositivos" id="listaDeDispositivos"></select>
     </div>
+    
     <video class="cam" muted="muted" id="video" height="350" width="350"></video>
+    
     <p class="linea">En línea</p>
-        <select name="SDA" class="sda">
-            <option>SDA-I</option>
-            <option>SDA-II</option>
-            <option>SDA-III</option>
-            <option>SDA-IV</option>
-        </select>
+    
+    <!-- Lista -->
+
+    <select name="SDA" class="sda">
+        <option>SDA-I</option>
+        <option>SDA-II</option>
+        <option>SDA-III</option>
+        <option>SDA-IV</option>
+    </select>
+
+    <!-- Información de usuario -->
+    
     <div class="codigo">
         <p>Código del SDA #000{{user.id}}</p>
     </div>
-        <img class="img" src="../static/{{user.last_name}}.png" alt="" width="100" height="100">
-    <!-- Responsable a cargo -->
+    
+    <img class="img" src="../static/{{user.last_name}}.png" alt="" width="100" height="100">
+
     <div class="cargo">
         <p>Responsable a cargo</p>
     </div>
+
+    <!-- Lógo y slogan -->
 
     <p class="slogan">
         "Por un aire mejor"
     </p>
     <a href="http://127.0.0.1:8000/admin/SAIU_DATOS/noviembre/1/change/">
         <img class="saiu" width="150" height="150" src="../static/saiu.png">
-
     </a>
+
+    <!-- Gráfica -->
 
     <p class="fecha_actual">
         Periodo {{today}}, actualizando en tiempo real.
     </p>
 
-    <!-- MAPA DE LA UNIVERSIDAD -->
-    <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.583388374951!2d-74.81358428571663!3d4.300790196873873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f299468c09007%3A0x6774ec324bea8ff!2sUniversidad%20Piloto%20de%20Colombia%20-%20Seccional%20del%20Alto%20Magdalena!5e0!3m2!1ses!2sco!4v1667595102555!5m2!1ses!2sco" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></body>
-    <!-- MAPA DE LA UNIVERSIDAD -->
-
-
-
-
-    <!-- Gráfica -->
     <div class="chartBox">
         <canvas id="grafica"></canvas>
     </div>
-    <!-- Gráfica -->
+
+    <!-- Google Maps - Universidad -->
+
+    <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.583388374951!2d-74.81358428571663!3d4.300790196873873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f299468c09007%3A0x6774ec324bea8ff!2sUniversidad%20Piloto%20de%20Colombia%20-%20Seccional%20del%20Alto%20Magdalena!5e0!3m2!1ses!2sco!4v1667595102555!5m2!1ses!2sco" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></body>
 
     <!-- Chart.js para la utilización de gráficas -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
-    <!-- Chart.js para la utilización de gráficas -->
-
+    
     <!-- Script para la utilización de Chart.js --->
     <script>
         // Obtener una referencia al elemento canvas del DOM
