@@ -3,55 +3,24 @@
 {% block content %}
 <style>
 
-.fecha_actual {
-    font-size: 22px;
-    color: #000;
-    left: 40px;
-    position: fixed;
-    top: 285px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+    .chartBox{
+        background-color: #ffffff;
+        height: 300px;
+        width: 800px;
+        left: 20px;
+        bottom: 40px;
+        position: fixed;
+        border-radius: 20px;
+    }
 
-.saiu{
-    position: fixed;
-    left: 20px;
-    top: 100px; 
-}
-.slogan{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 30px;
-    position: fixed;
-    left: 230px;
-    top: 120px; 
-}
-
-.desenfoque{
-    filter: blur(4px);
-    position: fixed;
-    background-color: white;
-    top: 90px;
-    width: 550px;
-    left: -10px;
-    height: 180px;
-    opacity: 60%;
-}
-
-.sda{
-        margin:20px auto 20px auto;	
-        border:1px solid #d9d9d9;
-        height:40px;
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        font-size: 20px;
-        top: 150px;
-        overflow: hidden;
-        width: 200px;
-        position:fixed;
-        left: 250px;
+    .mapa{
+        position: fixed;
+        bottom: 40px;
+        right: 80px;
         border-radius: 20px;
     }
 
 </style>
-<img class="desenfoque" src="../static/XD.png" alt="" width="100" height="100">
 
     <div class="welcome">
         <h1>¡Bienvenido, {{user.first_name}} {{user.last_name}}!</h1> 
@@ -79,104 +48,102 @@
         <p>Responsable a cargo</p>
     </div>
 
-    <p class="slogan">
-        "Por un aire mejor"
-    </p>
-    <a href="http://127.0.0.1:8000/admin/SAIU_DATOS/noviembre/1/change/">
-        <img class="saiu" width="150" height="150" src="../static/saiu.png">
-
-    </a>
-
-    <p class="fecha_actual">
-        Periodo {{today}}, actualizando en tiempo real.
-    </p>
-
     <!-- MAPA DE LA UNIVERSIDAD -->
     <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.583388374951!2d-74.81358428571663!3d4.300790196873873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f299468c09007%3A0x6774ec324bea8ff!2sUniversidad%20Piloto%20de%20Colombia%20-%20Seccional%20del%20Alto%20Magdalena!5e0!3m2!1ses!2sco!4v1667595102555!5m2!1ses!2sco" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></body>
     <!-- MAPA DE LA UNIVERSIDAD -->
-
-
-
-
-    <!-- Gráfica -->
     <div class="chartBox">
         <canvas id="grafica"></canvas>
     </div>
-    <!-- Gráfica -->
 
-    <!-- Chart.js para la utilización de gráficas -->
+    <!-- gráficas -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
-    <!-- Chart.js para la utilización de gráficas -->
+    <!-- gráficas -->
+    
+<script>
+// Obtener una referencia al elemento canvas del DOM
+const $grafica = document.querySelector("#grafica");
+// Las etiquetas son las que van en el eje X. 
+const etiquetas = ["Semana 1", "Semana 2", "Semana 3", "Semana 4"]
+// Podemos tener varios conjuntos de datos
 
-    <!-- Script para la utilización de Chart.js --->
-    <script>
-        // Obtener una referencia al elemento canvas del DOM
-        const $grafica = document.querySelector("#grafica");
-        // Las etiquetas son las que van en el eje X. 
-        const etiquetas = ["Semana 1", "Semana 2", "Semana 3", "Semana 4"]
-        // Podemos tener varios conjuntos de datos
+const agosto2022 = {
+    label: "Agosto", 
+    data: {{a}}, 
+    backgroundColor: 'rgba(211,93,110, 0.2)',// Color de fondo
+    borderColor: 'rgba(211,93,110, 1)',// Color del borde
+    borderWidth: 1,// Ancho del borde
+};
+const septiembre2022 = {
+    label: "Septiembre",
+    data: {{b}}, // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: 'rgba(209,234,163,0.5)',// Color de fondo
+    borderColor: 'rgba(209,234,163,1)',// Color del borde
+    borderWidth: 1,// Ancho del borde
+};
+const octubre2022 = {
+    label: "Octubre",
+    data: {{c}}, // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de fondo
+    borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+    borderWidth: 1,// Ancho del borde
+};
+const noviembre2022 = {
+    label: "Noviembre",
+    data: {{d}}, // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: 'rgba(255, 159, 64, 0.2)',// Color de fondo
+    borderColor: 'rgba(255, 159, 64, 1)',// Color del borde
+    borderWidth: 1,// Ancho del borde
+};
 
-        const agosto2022 = {
-            label: "Agosto", 
-            data: {{a}}, //es normal que de error
-            backgroundColor: 'rgba(211,93,110, 0.2)',// Color de fondo
-            borderColor: 'rgba(211,93,110, 1)',// Color del borde
-            borderWidth: 1,// Ancho del borde
-        };
-        const septiembre2022 = {
-            label: "Septiembre",
-            data: {{b}}, //es normal que de error
-            backgroundColor: 'rgba(209,234,163,0.5)',// Color de fondo
-            borderColor: 'rgba(209,234,163,1)',// Color del borde
-            borderWidth: 1,// Ancho del borde
-        };
-        const octubre2022 = {
-            label: "Octubre",
-            data: {{c}}, //es normal que de error
-            backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de fondo
-            borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
-            borderWidth: 1,// Ancho del borde
-        };
-        const noviembre2022 = {
-            label: "Noviembre",
-            data: {{d}}, //es normal que de error
-            backgroundColor: 'rgba(255, 159, 64, 0.2)',// Color de fondo
-            borderColor: 'rgba(255, 159, 64, 1)',// Color del borde
-            borderWidth: 1,// Ancho del borde
-        };
-
-        new Chart($grafica, {
-            type: 'line',// Tipo de gráfica
-            data: {
-                labels: etiquetas,
-                datasets: [
-                    agosto2022,
-                    septiembre2022,
-                    octubre2022,
-                    noviembre2022,
-                ]
-            },
-            options: {
-                title:{
-                    display: true,
-                    text: 'Cantidad de contaminación en el aire durante el segundo semestre del año 2022'
-                },
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }],
-                },
-            }
-        });
-    </script>
-    <!-- Script para la utilización de Chart.js --->
+new Chart($grafica, {
+    type: 'line',// Tipo de gráfica
+    data: {
+        labels: etiquetas,
+        datasets: [
+            agosto2022,
+            septiembre2022,
+            octubre2022,
+            noviembre2022,
+        ]
+    },
+    options: {
+        title:{
+            display: true,
+            text: 'Cantidad de contaminación en el aire durante el segundo semestre del año 2022'
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }],
+        },
+    }
+});
+</script>
 
 
-    <!-- Script para la utilización de la cámara -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script>
         /*
             Tomar una fotografía y guardarla en un archivo v3
@@ -321,7 +288,4 @@
             }
         })();
     </script>
-    <!-- Script para la utilización de la cámara -->
-
-
 {% endblock %}
