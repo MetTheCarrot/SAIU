@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from SAIU_DATOS.models import Agosto, Septiembre, Octubre, Noviembre
+from SAIU_DATOS.models import Septiembre, Octubre, Noviembre
 import time
 
 
@@ -11,11 +11,6 @@ def base(request):
     b = []
     c = []
     d = []
-    for i in (Agosto.objects.all()):
-        a.append(i.primeraSemana)
-        a.append(i.segundaSemana)
-        a.append(i.terceraSemana)
-        a.append(i.cuartaSemana)
     for i in (Septiembre.objects.all()):
         b.append(i.primeraSemana)
         b.append(i.segundaSemana)
@@ -33,4 +28,4 @@ def base(request):
         d.append(i.cuartaSemana)
     #date today
     today = time.strftime("%d/%m/%y")
-    return render(request, "informacion.html", {"a": a, "b": b, "c": c, "d": d, "today": today})
+    return render(request, "informacion.html", {"b": b, "c": c, "d": d, "today": today})

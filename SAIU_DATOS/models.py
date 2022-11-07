@@ -1,18 +1,6 @@
 from django.db import models
 
 # Create your models here.
-class Agosto(models.Model):
-    class Meta:
-        verbose_name = "Agosto"
-        verbose_name_plural = "Agosto"
-    id = models.AutoField(primary_key=True)
-    primeraSemana = models.IntegerField(verbose_name="Semana 1")
-    segundaSemana = models.IntegerField(verbose_name="Semana 2")
-    terceraSemana = models.IntegerField(verbose_name="Semana 3")
-    cuartaSemana = models.IntegerField(verbose_name="Semana 4")
-    # def __str__(self):
-    #     return self.name
-
 
 class Septiembre(models.Model):
     class Meta:
