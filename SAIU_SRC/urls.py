@@ -18,10 +18,12 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from SAIU_SRC import views
+from SAIU_DATOS import views as views2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.base),
+    path('modificar/<id>', views2.estadisticas.noviembre2022),
 ]
 
 if settings.DEBUG:

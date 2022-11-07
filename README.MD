@@ -5,8 +5,14 @@ Proyecto de aula destinado al analisis de datos de la contaminacion de la univer
 # ⚙️ Requirimientos
 ```py
 pip install django
+```
+```py
+pip install django-crispy-forms
+```
+```py
 pip install django-admin-interface
 ```
+
 
 # ▶️ Pasos
 

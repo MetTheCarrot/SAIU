@@ -1,0 +1,102 @@
+{% extends "base.html"%}
+{% load crispy_forms_tags %}
+{% block title %} Estadisticas {% endblock %}
+{%block content %}
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .apoyo{
+        width: 400px;
+        background: rgb(0,100,20);
+        background: linear-gradient(355deg, rgba(0,100,20,1) 0%, rgba(92,203,95,1) 100%);
+        padding: 30px;
+        margin: auto;
+        margin-top: 20px;
+        border-radius: 10px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        box-shadow: 7px 13px 37px #000;
+    }
+    .apoyo h2{
+        text-align: center;
+        margin-bottom: 20px;
+        color: white;
+        text-shadow: 0px 5px 25px #000;
+    }
+    .form-group{
+        width: 100%;
+        color: #000;
+        text-align: center;
+        font-size: 20px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    .form-group input{
+        width: 100%;
+        background: rgb(42,140,74);
+        color: white;
+        background: linear-gradient(149deg, rgba(42,140,74,1) 0%, rgba(100,194,123,1) 100%);       padding: 5px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        border: 2px  solid #d0fdd7;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 18px;
+    }
+    .ward{
+        width: 30%;
+        background: rgb(152,255,150);
+        background: linear-gradient(149deg, rgba(152,255,150,1) 0%, rgba(92,203,95,1) 100%);
+        color: #003400;
+        border: 2px solid;
+        padding: 5px;
+        font-size: 16px;
+        margin: 16px 0;
+        border-radius: 10px;
+
+    }
+    .asteriskField {
+        display: none;
+    }
+    .clear  {
+        width: 300px;
+        background: rgb(152,255,150);
+        background: linear-gradient(149deg, rgba(152,255,150,1) 0%, rgba(92,203,95,1) 100%);
+        color: #003400;
+        border: 2px solid;
+        text-decoration: none;
+        padding: 5px;
+        font-size: 16px;
+        margin: 16px 0;
+        border-radius: 10px;
+        right: 0;
+        text-align: center;
+    }
+</style>
+
+    <br>
+    <br>
+    <div class="apoyo">
+        <h2>Modificando estadisticas de Noviembre</h2>
+        <hr>                
+        <br>
+
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% if mensaje %}
+                <div class="alert alert-success" role="alert">
+                    se logro papu
+                </div>
+                {% endif %}
+                {{ form|crispy }}
+                <br>
+                {% for info in '12345678' %}
+                &nbsp;
+                {% endfor %}
+                <a href="youtube.com" class="clear">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volver&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    &nbsp;
+                    <input id="id_btn" type="submit" value="Guardar" class="ward">
+            </form>
+    </div>
+{%endblock%}
